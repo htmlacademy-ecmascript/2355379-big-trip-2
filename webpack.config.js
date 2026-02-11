@@ -1,12 +1,13 @@
+const path = require('path');
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: './src/main.js',   // main.js - точка входа
   output: {
-    filename: 'bundle,js',  // файл сборки (бандл)
+    filename: 'bundle.js',  // файл сборки (бандл)
 
     // получить абсолютный путь с помощью path.resolve
-    path: path.resolve(__dirname, 'build'), // по какому пути наход. bundle,js
+    path: path.resolve(__dirname, 'build'), // по какому пути наход. bundle.js
 
     clean: true,            //  очистка директории перед новой сборкой
   },
@@ -15,7 +16,7 @@ module.exports = {
   plugins: [
     // создается экземпляр плагина CopyPlugin, позволяет выполнять копирование файлов в указанную папку
     new CopyPlugin({
-      patterns: [{ from: 'public'}]
+      patterns: [{ from: 'public'}],
     }),
   ],
 

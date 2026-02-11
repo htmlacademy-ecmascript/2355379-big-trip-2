@@ -20,7 +20,7 @@ npm i eslint@8.38.0 -DE
 - eslint-config-htmlacademy@9.0.0   OK
 - webpack@5.79.0                     OK
 - webpack-cli@5.0.1                  OK
-- webpack-dev-server@4.13.3         OK
+- webpack-dev-server@4.13.3          OK
 - copy-webpack-plugin@11.0.0         OK
 - html-webpack-plugin@5.5.1         OK
 - @babel/core@7.21.4                
