@@ -16,4 +16,8 @@ export default class NewTaskButtonView {
 
     return this.element;
   }
-};
+
+  removeElement() {
+    this.element = null;
+  }
+}
