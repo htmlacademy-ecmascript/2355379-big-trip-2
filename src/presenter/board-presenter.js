@@ -1,11 +1,14 @@
 import {render} from '../render.js';
 import BoardView from '../view/board.js'; // без скобок - импорт default, название может быть любое или повторяет с импорта
 import PointView from '../view/point-view.js';
+import EditPointView from '../view/edit-point-view.js';
+
 import SortView from '../view/sort-view.js';
 
 export default class BoardPresenter {
   listPoint = new BoardView();
   pointComponent = new PointView();
+  editPointComponent = new EditPointView();
 
   constructor({boardContainer}) { // параметр передан в main.js
     this.boardContainer = boardContainer; // создано свойство boardContainer у этого объекта
@@ -26,8 +29,8 @@ export default class BoardPresenter {
     for (let i = 0; i < 3; i++) {
       // 1 аргумент - что рисовать, 2 аргумент - куда рисовать
       render(new PointView(), this.listPoint.getElement());
+      render(new EditPointView(), this.listPoint.getElement());
     }
-
 
   }
 }
