@@ -22,9 +22,6 @@ export default class BoardPresenter {
     // добавить список
     render(this.listPoint, this.boardContainer);
 
-    // render(this.taskListComponent, this.boardComponent.getElement());
-    //render(new TaskEditView(), this.taskListComponent.getElement());
-
     // добавить точки маршрута
     for (let i = 0; i < 3; i++) {
       // 1 аргумент - что рисовать, 2 аргумент - куда рисовать
