@@ -25,4 +25,13 @@ export default class PointsModel {
   getOffers() {
     return this.offers;
   }
+
+  getDestinationById(id) {
+    // внутри массива this.destinations находим один, в котором функция ищет указанный id
+    return this.destinations.find((item) => item.id === id);
+  }
+
+  getOffersByType(type) {
+    return this.offers.find((item) => item.type === type);
+  }
 }

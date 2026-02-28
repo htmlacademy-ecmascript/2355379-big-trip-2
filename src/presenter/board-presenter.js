@@ -18,7 +18,6 @@ export default class BoardPresenter {
   // init(), инициализатор начальной загрузки, название придумал
   // вызывается в main.js
   init() {
-    console.log(this.pointsModel.getPoints());
     this.points = this.pointsModel.getPoints().slice();
 
     // добавить сортировку
@@ -26,11 +25,16 @@ export default class BoardPresenter {
     // добавить список
     render(this.listPoint, this.boardContainer);
 
+    render(new EditPointView(), this.listPoint.getElement());
     // добавить точки маршрута
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < this.points.length; i++) {
+      const point = this.points[i];
+      const destination = this.pointsModel.getDestinationById(point.destination);
+      const offers = this.pointsModel.getOffersByType(point.type).offers.filter((offer) => point.offers.includes(offer.id));
       // 1 аргумент - что рисовать, 2 аргумент - куда рисовать
-      render(new PointView(), this.listPoint.getElement());
-      render(new EditPointView(), this.listPoint.getElement());
+      render(new PointView(point, destination, offers), this.listPoint.getElement()); // передается в constructor файла point-view.js
+
+
     }
 
   }
