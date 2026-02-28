@@ -1,14 +1,18 @@
 const RenderPosition = {
   BEFOREBEGIN: 'beforebegin',
   AFTERBEGIN: 'afterbegin',
-  BEFOREEND: 'beforeend',
+  BEFOREEND: 'beforeend', // перед окончанием контейнера
   AFTEREND: 'afterend',
 };
 
 function createElement(template) {
+  // создание временной обёртки
   const newElement = document.createElement('div');
+
+  // вставить div строкой
   newElement.innerHTML = template;
 
+  // вернуть строку в виде html-элемента
   return newElement.firstElementChild;
 }
 

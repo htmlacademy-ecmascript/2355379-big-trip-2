@@ -1,4 +1,4 @@
-import {render} from '../render.js';
+import { render } from '../render.js';
 import BoardView from '../view/board.js'; // без скобок - импорт default, название может быть любое или повторяет с импорта
 import PointView from '../view/point-view.js';
 import EditPointView from '../view/edit-point-view.js';
@@ -10,20 +10,21 @@ export default class BoardPresenter {
   pointComponent = new PointView();
   editPointComponent = new EditPointView();
 
-  constructor({boardContainer}) { // параметр передан в main.js
+  constructor({ boardContainer, pointsModel }) { // параметр передан в main.js
     this.boardContainer = boardContainer; // создано свойство boardContainer у этого объекта
+    this.pointsModel = pointsModel;
   }
 
   // init(), инициализатор начальной загрузки, название придумал
   // вызывается в main.js
   init() {
+    console.log(this.pointsModel.getPoints());
+    this.points = this.pointsModel.getPoints().slice();
+
     // добавить сортировку
     render(new SortView(), this.boardContainer); // по умолчанию идет добавление в конец контейнера, прописано в render.js (place = RenderPosition.BEFOREEND)
     // добавить список
     render(this.listPoint, this.boardContainer);
-
-    // render(this.taskListComponent, this.boardComponent.getElement());
-    //render(new TaskEditView(), this.taskListComponent.getElement());
 
     // добавить точки маршрута
     for (let i = 0; i < 3; i++) {
