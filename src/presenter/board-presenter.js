@@ -22,18 +22,30 @@ export default class BoardPresenter {
 
     // добавить сортировку
     render(new SortView(), this.boardContainer); // по умолчанию идет добавление в конец контейнера, прописано в render.js (place = RenderPosition.BEFOREEND)
+
     // добавить список
     render(this.listPoint, this.boardContainer);
 
-    render(new EditPointView(), this.listPoint.getElement());
     // добавить точки маршрута
     for (let i = 0; i < this.points.length; i++) {
+      // i-тая точка маршрута
       const point = this.points[i];
+      // у очередного элемента по destination находим в points-model.js с функцией getDestinationById,
       const destination = this.pointsModel.getDestinationById(point.destination);
-      const offers = this.pointsModel.getOffersByType(point.type).offers.filter((offer) => point.offers.includes(offer.id));
+      // как в const point
+      const offers = this.pointsModel
+        .getOffersByType(point.type)
+        .offers // массив 'offers': по типу в offers.js
+        .filter((offer) => point.offers.includes(offer.id)); // фильтрация id-шников в 'offers': в points.js
+
+      const allDestinations = this.pointsModel.getDestination().map((item) => item.name);
+      const allTypes = this.pointsModel.getOffers().map((item) => item.type);
+      const offersByType = this.pointsModel.getOffersByType(point.type).offers;
+
       // 1 аргумент - что рисовать, 2 аргумент - куда рисовать
       render(new PointView(point, destination, offers), this.listPoint.getElement()); // передается в constructor файла point-view.js
 
+      render(new EditPointView(point, destination, allDestinations, allTypes, offersByType), this.listPoint.getElement());
 
     }
 

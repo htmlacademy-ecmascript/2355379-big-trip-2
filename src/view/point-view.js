@@ -1,14 +1,15 @@
 import { createElement } from '../render.js';
 
 function createOfferTemplate(offers) {
+  // title и price из offers.js
   return `${offers.map((offer) => (
     `<li class="event__offer">
-    <span span class="event__offer-title">${offer.title}</span>
-                  &plus;&euro;&nbsp;
-  <span class="event__offer-price">${offer.price}</span>
-                </li > `)).join('')}`;
+      <span span class="event__offer-title">${offer.title}</span>&plus;&euro;&nbsp;
+      <span class="event__offer-price">${offer.price}</span>
+    </li > `)).join('')}`;
 }
 
+// передать точку, пункт назначения, предложения
 function createPointTemplate(point, destination, offers) {
   return `<li class="trip-events__item">
             <div class="event">
