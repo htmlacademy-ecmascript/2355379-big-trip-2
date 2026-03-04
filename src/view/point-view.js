@@ -1,4 +1,6 @@
 import { createElement } from '../render.js';
+import { formatDate } from '../utils.js';
+import { getDuration } from '../utils.js';
 
 function createOfferTemplate(offers) {
   // title и price из offers.js
@@ -13,19 +15,19 @@ function createOfferTemplate(offers) {
 function createPointTemplate(point, destination, offers) {
   return `<li class="trip-events__item">
             <div class="event">
-              <time class="event__date" datetime="2019-03-18">${point.dateTo}</time>
+              <time class="event__date" datetime="${formatDate(point.dateFrom, 'YYYY-MM-DD')}">${formatDate(point.dateFrom)}</time>
               <div class="event__type">
                 <img class="event__type-icon" width="42" height="42" src="img/icons/${point.type}.png" alt="Event type icon"> <!-- подстановка картинок-->
               </div>
               <h3 class="event__title">${point.type} ${destination.name}</h3> <!-- подстановка места путешествия-->
               <div class="event__schedule">
                 <p class="event__time">
-                  <time class="event__start-time" datetime="2019-03-18T10:30">10:30</time>
+                  <time class="event__start-time" datetime="${formatDate(point.dateFrom, 'YYYY-DD-MM[T]HH:mm')}">${formatDate(point.dateFrom, 'HH:mm')}</time><!--2019-03-18T10:30-->
                   &mdash;
-                  <time class="event__end-time" datetime="2019-03-18T11:00">11:00</time>
+                  <time class="event__end-time" datetime="${formatDate(point.dateTo, 'YYYY-DD-MM[T]HH:mm')}">${formatDate(point.dateTo, 'HH:mm')}</time>
                 </p>
-                <p class="event__duration">30M</p>
-              </div>
+                <p class="event__duration">${getDuration(point.dateFrom, point.dateTo)}</p>
+              </div><!--30M-->
               <p class="event__price">
                 &euro;&nbsp;<span class="event__price-value">${point.basePrice}</span> <!-- подстановка стоимости-->
               </p>
