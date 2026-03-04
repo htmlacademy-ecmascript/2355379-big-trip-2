@@ -1,9 +1,13 @@
 const destinations = [
   {
     'id': 'bda52f8a-b6f7-4a9b-a4e6-ab72ff3e21c2',
-    'description': '',
-    'name': 'Kioto',
-    'pictures': []
+    'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
+    'name': 'Budapest',
+    'pictures': [{
+      'src': 'https://loremflickr.com/248/152?random=230',
+      'description': 'It s a random photo'
+
+    }]
   },
   {
     'id': '6848bc90-62e3-42b1-bcaa-759211e1b0b2',
