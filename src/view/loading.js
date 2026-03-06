@@ -1,7 +1,9 @@
-import {createElement} from '../render.js';
+import { createElement } from '../render.js';
 
 function createNewTaskLoadingTemplate() {
-  return '<p class="trip-events__msg">Loading...</p>';
+  return `
+  <p class="trip-events__msg">Loading...</p>
+  `;
 }
 
 export default class NewTaskLoadingView {
@@ -10,7 +12,7 @@ export default class NewTaskLoadingView {
   }
 
   getElement() {
-    if(!this.element) {
+    if (!this.element) {
       this.element = createElement(this.getTemplate());
     }
 
