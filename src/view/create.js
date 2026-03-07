@@ -1,7 +1,9 @@
-import {createElement} from '../render.js';
+import { createElement } from '../render.js';
 
 function createNewTaskFormCreateTemplate() {
-  return '<ul class="trip-events__list"></ul>';
+  return `
+  <ul class="trip-events__list"></ul>
+  `;
 }
 
 export default class NewTaskFormCreateTemplate {
@@ -10,7 +12,7 @@ export default class NewTaskFormCreateTemplate {
   }
 
   getElement() {
-    if(!this.element) {
+    if (!this.element) {
       this.element = createElement(this.getTemplate());
     }
 
