@@ -1,4 +1,5 @@
-import {createElement} from '../render.js';
+import { createElement } from '../render.js';
+// импорт css-файла с помощью loader-ов
 import './abstract-view.css';
 
 /** @const {string} Класс, реализующий эффект "покачивания головой" */
