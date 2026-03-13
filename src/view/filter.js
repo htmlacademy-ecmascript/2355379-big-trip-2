@@ -1,4 +1,5 @@
-import { createElement } from '../render.js';
+//import { createElement } from '../render.js';
+import AbstractView from '../framework/view/abstract-view.js';
 
 function createNewTaskButtonTemplate() {
   return `
@@ -6,8 +7,9 @@ function createNewTaskButtonTemplate() {
   `;
 }
 
-export default class NewTaskButtonView {
-  getTemplate() {
+
+export default class NewTaskButtonView extends AbstractView {
+  get template() {
     return createNewTaskButtonTemplate();
   }
 
@@ -18,8 +20,8 @@ export default class NewTaskButtonView {
 
     return this.element;
   }
-
-  removeElement() {
-    this.element = null;
-  }
+  /*
+    removeElement() {
+      this.element = null;
+    } */
 }
