@@ -1,4 +1,5 @@
-import { createElement } from '../render.js';
+import { createElement } from '../framework/render.js';
+import AbstractView from '../framework/view/abstract-view.js';
 
 function createNewTaskSortingTemplate() {
   return `<form class="trip-events__trip-sort  trip-sort" action="#" method="get">
@@ -42,3 +43,4 @@ export default class SortView {
     return this.element;
   }
 }
+

@@ -1,4 +1,4 @@
-import { createElement } from '../render.js';
+import { createElement } from '../framework/render.js';
 import { formatDate } from '../utils.js';
 import { getDuration } from '../utils.js';
 

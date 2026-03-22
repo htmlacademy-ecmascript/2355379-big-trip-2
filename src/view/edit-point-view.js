@@ -1,4 +1,4 @@
-import { createElement } from '../render.js';
+import { createElement } from '../framework/render.js';
 import { formatDate } from '../utils.js';
 
 function createEditPointTemplate(point, destination, allDestinations, allTypes, offersByType) {

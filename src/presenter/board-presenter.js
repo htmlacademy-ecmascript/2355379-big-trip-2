@@ -1,4 +1,5 @@
 import { render } from '../render.js';
+//import { render } from '../framework/render.js';
 import BoardView from '../view/board.js'; // без скобок - импорт default, название может быть любое или повторяет с импорта
 import PointView from '../view/point-view.js';
 import EditPointView from '../view/edit-point-view.js';

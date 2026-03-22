@@ -1,4 +1,5 @@
-import {createElement} from '../render.js';
+import { createElement } from '../framework/render.js';
+import AbstractView from '../framework/view/abstract-view';
 
 function createBoardTemplate() { // PointListTemplate
   return `
@@ -12,7 +13,7 @@ export default class BoardView { // PointView
   }
 
   getElement() {
-    if(!this.element) {
+    if (!this.element) {
       this.element = createElement(this.getTemplate());
     }
 

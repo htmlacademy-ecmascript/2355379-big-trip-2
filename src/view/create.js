@@ -1,4 +1,4 @@
-//import { createElement } from '../render.js';
+import { createElement } from '../framework/render.js';
 import AbstractView from '../framework/view/abstract-view.js';
 
 function createNewTaskFormCreateTemplate() {
@@ -13,16 +13,16 @@ export default class NewTaskFormCreateTemplate extends AbstractView {
   get template() {
     return createNewTaskFormCreateTemplate();
   }
+  /*
+    getElement() {
+      if (!this.element) {
+        this.element = createElement(this.getTemplate());
+      }
 
-  //getElement() {
-  //  if (!this.element) {
-  //    this.element = createElement(this.getTemplate());
-  //  }
+      return this.element;
+    }
 
-  //  return this.element;
-  //}
-
-  //removeElement() {
-  //  this.element = null;
-  //}
+      removeElement() {
+        this.element = null;
+      } */
 }
