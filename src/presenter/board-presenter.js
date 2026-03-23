@@ -17,7 +17,7 @@ export default class BoardPresenter {
 
   init() {
     this.element.addEventListener('click', () => {
-      console.log('click');
+      //console.log('click');
     });
   }
 
@@ -76,6 +76,7 @@ export default class BoardPresenter {
 
   // init(), инициализатор начальной загрузки, название придумал
   // вызывается в main.js
+  /*
   init() {
     this.points = this.pointsModel.getPoints().slice();
 
@@ -91,5 +92,5 @@ export default class BoardPresenter {
 
     }
 
-  }
+  }*/
 }
