@@ -1,4 +1,3 @@
-import { createElement } from '../framework/render.js';
 import AbstractView from '../framework/view/abstract-view';
 
 function createNewTaskLoadingTemplate() {
@@ -7,16 +6,9 @@ function createNewTaskLoadingTemplate() {
   `;
 }
 
-export default class NewTaskLoadingView {
-  getTemplate() {
+export default class LoadingView extends AbstractView {
+  get template() {
     return createNewTaskLoadingTemplate();
   }
 
-  getElement() {
-    if (!this.element) {
-      this.element = createElement(this.getTemplate());
-    }
-
-    return this.element;
-  }
 }

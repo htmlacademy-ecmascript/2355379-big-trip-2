@@ -1,6 +1,6 @@
-import { render } from './render.js';
+import { render } from './framework/render.js';
 
-import NewTaskButtonView from './view/filter.js'; // без скобок - импорт default
+import FilterView from './view/filter.js'; // без скобок - импорт default
 
 import BoardPresenter from './presenter/board-presenter.js';
 import PointsModel from './model/points-model.js';
@@ -16,7 +16,7 @@ const pointsModel = new PointsModel();
 // создать экземпляр презентера, аргумент предан из board-presenter.js
 const boardPresenter = new BoardPresenter({ boardContainer: tripEvents, pointsModel });
 
-render(new NewTaskButtonView(), tripControlsFilters); // NewTaskFilterView
+render(new FilterView(), tripControlsFilters); // NewTaskFilterView
 
 // вызывается из boardPresenter.js
 boardPresenter.init();
