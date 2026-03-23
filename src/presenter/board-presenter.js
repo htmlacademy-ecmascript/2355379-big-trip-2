@@ -3,7 +3,7 @@ import BoardView from '../view/board.js'; // без скобок - импорт 
 import PointView from '../view/point-view.js';
 import EditPointView from '../view/edit-point-view.js';
 
-import SortView from '../view/sort-view.js';
+//import SortView from '../view/sort-view.js';
 
 export default class BoardPresenter {
   listPoint = new BoardView();
