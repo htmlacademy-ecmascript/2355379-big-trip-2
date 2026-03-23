@@ -24,29 +24,36 @@ module.exports = {
     // создается экземпляр плагина CopyPlugin, позволяет выполнять копирование файлов в указанную папку
     //ignore: ['**/index.html'], // исключает public/index.html для copy-webpack-plugin (не будет его затирать)
     new CopyPlugin({
-      patterns: [{
-        from: 'public',
-        globOptions: {
-          ignore: ['**/index.html'],
+      patterns: [
+        {
+          from: 'public',
+          globOptions: {
+            ignore: ['**/index.html'],
+          },
         },
-      }],
+      ],
     }),
   ],
 
-};
 
-// настройки для babel
-module: {
-  rules: [
-    {
-      test: /\.js$/,
-      exclude: /(node_modules)/, // исключение
-      use: {
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-env']
+
+  // настройки для babel
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules)/, // исключение
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          },
         },
-      }
-    }
-  ]
-}
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader']
+      },
+    ],
+  },
+};

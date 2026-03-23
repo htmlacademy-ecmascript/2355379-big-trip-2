@@ -15,6 +15,8 @@ const RenderPosition = {
  */
 function createElement(template) {
   const newElement = document.createElement('div');
+
+  // вопрос безопасности/экранирования innerHTML будет решен далее
   newElement.innerHTML = template;
 
   return newElement.firstElementChild;
@@ -77,4 +79,4 @@ function remove(component) {
   component.removeElement();
 }
 
-export {RenderPosition, createElement, render, replace, remove};
+export { RenderPosition, createElement, render, replace, remove };

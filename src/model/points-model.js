@@ -1,3 +1,5 @@
+// 4.1.4. Добавит классам приватные поля и геттеры 13:35
+
 // модель точек, отвечает за данные
 import { offers } from '../data/offers.js';
 import { points } from '../data/points.js';
