@@ -3,22 +3,15 @@ import BoardView from '../view/board.js'; // без скобок - импорт 
 import PointView from '../view/point-view.js';
 import EditPointView from '../view/edit-point-view.js';
 
-//import SortView from '../view/sort-view.js';
-
+import SortView from '../view/sort-view.js';
 export default class BoardPresenter {
-  listPoint = new BoardView();
+  #listPoint = new BoardView();
   pointComponent = new PointView();
   editPointComponent = new EditPointView();
 
   constructor({ boardContainer, pointsModel }) { // параметр передан в main.js
     this.boardContainer = boardContainer; // создано свойство boardContainer у этого объекта
     this.pointsModel = pointsModel;
-  }
-
-  init() {
-    this.element.addEventListener('click', () => {
-      //console.log('click');
-    });
   }
 
   #renderPoint(point) {
@@ -29,7 +22,6 @@ export default class BoardPresenter {
       .getOffersByType(point.type)
       .offers // массив 'offers': по типу в offers.js
       .filter((offer) => point.offers.includes(offer.id)); // фильтрация id-шников в 'offers': в points.js
-
 
     const allDestinations = this.pointsModel.getDestination().map((item) => item.name);
     const allTypes = this.pointsModel.getOffers().map((item) => item.type);
@@ -42,7 +34,6 @@ export default class BoardPresenter {
         replaceFormToPoint();
         document.removeEventListener('keydown', escKeyDownHandler);
       }
-
     };
 
     const pointComponent = new PointView(point, destination, offers);
@@ -51,18 +42,17 @@ export default class BoardPresenter {
         replacePointToForm();
         document.addEventListener('keydown', escKeyDownHandler);
       }
-
     });
     const pointEditComponent = new EditPointView(point, destination, allDestinations, allTypes, offersByType);
+
     pointEditComponent.init({
       onCancelClick: () => {
         replaceFormToPoint();
-        document.addEventListener('keydown', escKeyDownHandler);
+        document.removeEventListener('keydown', escKeyDownHandler);
       }
     });
     // 1 аргумент - что рисовать, 2 аргумент - куда рисовать
-    render(pointComponent, this.listPoint.element);
-
+    render(pointComponent, this.#listPoint.element);
 
     function replacePointToForm() {
       replace(pointEditComponent, pointComponent);
@@ -73,10 +63,8 @@ export default class BoardPresenter {
     }
   }
 
-
   // init(), инициализатор начальной загрузки, название придумал
   // вызывается в main.js
-  /*
   init() {
     this.points = this.pointsModel.getPoints().slice();
 
@@ -84,13 +72,12 @@ export default class BoardPresenter {
     render(new SortView(), this.boardContainer); // по умолчанию идет добавление в конец контейнера, прописано в render.js (place = RenderPosition.BEFOREEND)
 
     // добавить список
-    render(this.listPoint, this.boardContainer);
+    render(this.#listPoint, this.boardContainer);
 
     // добавить точки маршрута
     for (let i = 0; i < this.points.length; i++) {
       this.#renderPoint(this.points[i]);
-
     }
 
-  }*/
+  }
 }

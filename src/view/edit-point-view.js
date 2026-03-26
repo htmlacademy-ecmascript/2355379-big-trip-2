@@ -70,7 +70,6 @@ function createEditPointTemplate(point, destination, allDestinations, allTypes, 
             </label>
           </div>`).join('')}
 
-
         </div>
       </section>
 
@@ -103,6 +102,7 @@ export default class EditPointView extends AbstractView {
 
   init({ onCancelClick }) {
     this.element.querySelector('.event__rollup-btn').addEventListener('click', onCancelClick);
+    this.element.addEventListener('submit', onCancelClick); // повесил addEventListener напрямую, т.к. form это и есть this.element
   }
 
   get template() {
