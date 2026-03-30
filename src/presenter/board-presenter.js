@@ -4,6 +4,8 @@ import PointView from '../view/point-view.js';
 import EditPointView from '../view/edit-point-view.js';
 
 import SortView from '../view/sort-view.js';
+
+import { addNewPoint } from '/src/utils.js';
 export default class BoardPresenter {
   #listPoint = new BoardView();
   pointComponent = new PointView();
@@ -43,6 +45,7 @@ export default class BoardPresenter {
         document.addEventListener('keydown', escKeyDownHandler);
       }
     });
+
     const pointEditComponent = new EditPointView(point, destination, allDestinations, allTypes, offersByType);
 
     pointEditComponent.init({
@@ -61,6 +64,8 @@ export default class BoardPresenter {
     function replaceFormToPoint() {
       replace(pointComponent, pointEditComponent);
     }
+
+
   }
 
   // init(), инициализатор начальной загрузки, название придумал
@@ -72,12 +77,18 @@ export default class BoardPresenter {
     render(new SortView(), this.boardContainer); // по умолчанию идет добавление в конец контейнера, прописано в render.js (place = RenderPosition.BEFOREEND)
 
     // добавить список
-    render(this.#listPoint, this.boardContainer);
+    //render(this.#listPoint, this.boardContainer);
 
-    // добавить точки маршрута
-    for (let i = 0; i < this.points.length; i++) {
-      this.#renderPoint(this.points[i]);
+    // проверить наличие точек и вывести сообщение
+    if (this.points.length === 0) {
+      render(this.addNewPoint, this.boardContainer);
+    } else {
+      // добавить точки маршрута
+      for (let i = 0; i < this.points.length; i++) {
+        this.#renderPoint(this.points[i]);
+      }
     }
 
   }
 }
+

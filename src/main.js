@@ -4,6 +4,7 @@ import FilterView from './view/filter.js'; // без скобок - импорт
 
 import BoardPresenter from './presenter/board-presenter.js';
 import PointsModel from './model/points-model.js';
+import { addNewPoint } from './utils.js';
 
 const tripMain = document.querySelector('.trip-main');
 const tripControlsFilters = tripMain.querySelector('.trip-controls__filters');
@@ -16,7 +17,8 @@ const pointsModel = new PointsModel();
 // создать экземпляр презентера, аргумент предан из board-presenter.js
 const boardPresenter = new BoardPresenter({ boardContainer: tripEvents, pointsModel });
 
-render(new FilterView(), tripControlsFilters); // NewTaskFilterView
+render(new FilterView(pointsModel.getPoints()), tripControlsFilters); // NewTaskFilterView
 
 // вызывается из boardPresenter.js
 boardPresenter.init();
+
