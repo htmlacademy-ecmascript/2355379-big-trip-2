@@ -4,7 +4,7 @@ import FilterView from './view/filter.js'; // без скобок - импорт
 
 import BoardPresenter from './presenter/board-presenter.js';
 import PointsModel from './model/points-model.js';
-import { addNewPoint } from './utils.js';
+
 
 const tripMain = document.querySelector('.trip-main');
 const tripControlsFilters = tripMain.querySelector('.trip-controls__filters');

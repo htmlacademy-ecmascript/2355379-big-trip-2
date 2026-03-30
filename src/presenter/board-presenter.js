@@ -10,6 +10,7 @@ export default class BoardPresenter {
   #listPoint = new BoardView();
   pointComponent = new PointView();
   editPointComponent = new EditPointView();
+  addNewPoint = addNewPoint();
 
   constructor({ boardContainer, pointsModel }) { // параметр передан в main.js
     this.boardContainer = boardContainer; // создано свойство boardContainer у этого объекта
