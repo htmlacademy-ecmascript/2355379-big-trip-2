@@ -6,11 +6,13 @@ import EditPointView from '../view/edit-point-view.js';
 import SortView from '../view/sort-view.js';
 
 import { addNewPoint } from '/src/utils.js';
+
+import MessageView from '../view/message-view.js';
 export default class BoardPresenter {
   #listPoint = new BoardView();
   pointComponent = new PointView();
   editPointComponent = new EditPointView();
-  addNewPoint = addNewPoint();
+  messageComponent = new MessageView();
 
   constructor({ boardContainer, pointsModel }) { // параметр передан в main.js
     this.boardContainer = boardContainer; // создано свойство boardContainer у этого объекта
@@ -66,7 +68,6 @@ export default class BoardPresenter {
       replace(pointComponent, pointEditComponent);
     }
 
-
   }
 
   // init(), инициализатор начальной загрузки, название придумал
@@ -78,11 +79,11 @@ export default class BoardPresenter {
     render(new SortView(), this.boardContainer); // по умолчанию идет добавление в конец контейнера, прописано в render.js (place = RenderPosition.BEFOREEND)
 
     // добавить список
-    //render(this.#listPoint, this.boardContainer);
+    render(this.#listPoint, this.boardContainer);
 
     // проверить наличие точек и вывести сообщение
     if (this.points.length === 0) {
-      render(this.addNewPoint, this.boardContainer);
+      render(this.messageComponent, this.boardContainer);
     } else {
       // добавить точки маршрута
       for (let i = 0; i < this.points.length; i++) {

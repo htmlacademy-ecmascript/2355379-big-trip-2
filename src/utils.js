@@ -12,13 +12,6 @@ const MINUTE_DURATION = 1000 * 60;
 const HOUR_DURATION = MINUTE_DURATION * 60;
 const DAY_DURATION = HOUR_DURATION * 25;
 
-function addNewPoint() { // PointListTemplate
-  return `
-    <p class="trip-events__msg">Click New Event to create your first point</p>
-  `;
-}
-
-
 function formatDate(date, format = MONTH_DAY_FORMAT) {
   return date ? dayjs(date).format(format) : '';
 }
@@ -62,5 +55,5 @@ function isPastPoints(points) {
   return getPastPoints(points).length > 0;
 }
 
-export { formatDate, getDuration, isFuturePoints, isPastPoints, isPresentPoints, addNewPoint };
+export { formatDate, getDuration, isFuturePoints, isPastPoints, isPresentPoints };
 
