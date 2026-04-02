@@ -1,6 +1,11 @@
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
+import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
+import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
+
 dayjs.extend(duration);
+dayjs.extend(isSameOrAfter);
+dayjs.extend(isSameOrBefore);
 
 const MONTH_DAY_FORMAT = 'MMM DD';
 const MINUTE_DURATION = 1000 * 60;
@@ -26,4 +31,29 @@ function getDuration(dateFrom, dateTo) {
   return dayjs.duration(difference).format(format);
 }
 
-export { formatDate, getDuration };
+function getPastPoints(points) {
+  return points.filter((elem) => dayjs().isAfter(dayjs(elem.dateTo)));
+}
+
+function getFuturePoints(points) {
+  return points.filter((elem) => dayjs().isBefore(dayjs(elem.dateFrom)));
+}
+
+function getPresentPoints(points) {
+  return points.filter((elem) => dayjs().isSameOrAfter(dayjs(elem.dateFrom)) && dayjs().isSameOrBefore(dayjs(elem.dateTo)));
+}
+
+function isFuturePoints(points) {
+  return getFuturePoints(points).length > 0;
+}
+
+function isPresentPoints(points) {
+  return getPresentPoints(points).length > 0;
+}
+
+function isPastPoints(points) {
+  return getPastPoints(points).length > 0;
+}
+
+export { formatDate, getDuration, isFuturePoints, isPastPoints, isPresentPoints };
+

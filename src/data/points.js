@@ -4,8 +4,8 @@ const points =
     {
       'id': 'c407ba31-f25f-4339-b7b7-55a8e2a9a129',
       'basePrice': 6771,
-      'dateFrom': '2026-04-19T18:10:05.413Z',
-      'dateTo': '2026-04-21T18:53:05.413Z',
+      'dateFrom': '2026-03-27T10:10:05.413Z',
+      'dateTo': '2026-03-28T18:53:05.413Z',
       'destination': '1542f4f5-2f9b-4767-94f3-21cb636cd7f5',
       'isFavorite': false,
       'offers': [
@@ -17,8 +17,8 @@ const points =
     {
       'id': '1d5f04cd-112e-451b-9742-3a9684be46d6',
       'basePrice': 3723,
-      'dateFrom': '2026-04-23T18:52:05.413Z',
-      'dateTo': '2026-04-25T19:51:05.413Z',
+      'dateFrom': '2026-03-23T18:52:05.413Z',
+      'dateTo': '2026-03-25T19:51:05.413Z',
       'destination': 'cd61e4aa-0224-4786-a74d-9b864e905c8c',
       'isFavorite': true,
       'offers': [
